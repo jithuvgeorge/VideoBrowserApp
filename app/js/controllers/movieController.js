@@ -5,21 +5,22 @@ function ExampleCtrl($scope, movieFactory, $q) {
 
   var totalItems = 0, itemsLoaded = 0, nextPageIndex = 0;
   $scope.tileArray = [];
-  $scope.isLoading = false;
 
   function init(){
-    $scope.isLoading = true;
+    $scope.isLoading = false;
     $scope.loadNextPage();
   }
 
   $scope.loadNextPage = function(){
     
-    if(totalItems !== 0 && itemsLoaded>=totalItems && $scope.nextPageIndex !== 1){
+    if($scope.isLoading ||  itemsLoaded >= totalItems && nextPageIndex != 0){
       return;
     }
+    $scope.isLoading = true;
     nextPageIndex = nextPageIndex + 1;
     $q.when(movieFactory.getMovieList(nextPageIndex))
     .then(function(result){
+      $scope.isLoading = false;
       $scope.tileArray = _.concat($scope.tileArray, _.get(result, 'data.page.content-items.content'));
       totalItems = parseInt(_.get(result, 'data.page.total-content-items'), 10);
       itemsLoaded = _.size($scope.tileArray);
@@ -28,7 +29,7 @@ function ExampleCtrl($scope, movieFactory, $q) {
       console.log("error in reading data");
     })
     .finally(function () {
-      $scope.isLoading = false;
+      
     });
   };
 
