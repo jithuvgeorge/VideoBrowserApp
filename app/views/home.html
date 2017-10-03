@@ -1,0 +1,26 @@
+<header class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 header-cnt">
+      <span class="back-btn">
+        <img ng-src="./images/Back.png"/>
+      </span>
+      <span class="header-txt">Romantic Comedy</span>
+      <span class="search-btn col-xs-12">
+        <img ng-src="./images/search.png"/>
+      </span>
+      <span class="searchBox">
+          <input type="text" ng-model="customSelected" placeholder="SearchMovies" uib-typeahead="movie as movie.name for movie in searchMovies($viewValue)" typeahead-template-url="searchResultTemplate.html" class="form-control" typeahead-show-hint="true" typeahead-min-length="1" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+      </span>
+    </div>
+  </div>
+</header>
+<div class="home-container">
+	<div class="container-fluid" >
+		<div class="row scroll-block" infinite-scroll="loadNextPage()" infinite-scroll-disabled="isLoading" infinite-scroll-distance="1">
+			<div class="col-xs-4 padding-5px" ng-repeat="tile in tileArray track by $index" >
+				<movie-tile movie-data="tile"></movie-tile>
+			</div>
+		</div>
+	</div>
+</div>
+

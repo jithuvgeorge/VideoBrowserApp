@@ -1,0 +1,98 @@
+body{
+  background: #000;
+  color: white;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.home-container{
+  padding: 70px 5px 5px;
+}
+
+.truncate {
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 0;
+}
+
+header{
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 70px;
+  max-width: 768px;
+}
+
+.header-cnt{
+    height: 70px;
+    background: url("../images/nav_bar.png");
+    background-size: auto 112%;
+    display: table;
+    padding: 5px 10px;
+}
+
+.header-cnt>span{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.header-cnt>span>img{
+  width: 22px;
+}
+
+.back-btn{
+  text-align: left;
+}
+
+.search-btn{
+  padding-top: 20px;
+  text-align: right;
+}
+
+.searchBox{
+  width: 50%;
+  .dropdown-menu{
+    width: 48%;
+    max-height: 450%;
+    overflow-y: auto;
+  }
+}
+
+.header-txt{
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.tile-cnt img{
+  width: 100%;
+}
+.padding-5px{
+  padding: 5px;
+}
+
+.scroll-block{
+  min-height: 2500px;
+}
+
+.padding-top-5{
+  padding-top: 5px;
+}
+
+.search-result {
+  overflow: hidden;
+  max-width: 100%;
+
+  .search-result-image{
+    float: left
+  }
+  .search-result-text{
+    float: left;
+    padding-left: 10px;
+    width: 80%;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
