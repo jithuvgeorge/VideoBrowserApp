@@ -16,7 +16,7 @@ module.exports = function MovieFactory($q, $http, AppSettings) {
   function getSearchList(val) {
     var deferred = $q.defer();
     $http.get(AppSettings.search_url).then(function(result){
-      var results = _.filter(result.data.page['content-items'].content, function(o) { return _.includes(_.toLower(o.name), val);});
+      var results = _.filter(result.data.page['content-items'].content, function(o) { return _.includes(_.toLower(o.name), _.toLower(val));});
       deferred.resolve(results);
     }, function(error){
       deferred.reject(error);
